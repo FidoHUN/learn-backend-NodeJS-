@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Fancy text</h1>
+  <input type="text" id="name">
+  <button id="button">See pictures</button>
+  <div id="app"></div>
+  <!-- <form action="/pictures" method="get">
+    <input type="text" name="name">
+    <input type="submit" value="Get Images" name="submit">
+  </form> -->
+  <script>
+    button.addEventListener("click", function () {
+      document.getElementById("app").innerHTML = ''
+      fetch('/pictures?' + new URLSearchParams({
+        name: document.getElementById('name').value,
+      }))
+        .then(response => response.json())
+        .then(data => {
+          data.forEach((img) => {
+            const i_tag = document.createElement("img");
+            i_tag.src = img;
+            document.getElementById("app").appendChild(i_tag);
+          });
+        })
+        .catch(function (err) {
+          console.log(err);
+        })
+    })
+  </script>
+</body>
+
+
+</html>
