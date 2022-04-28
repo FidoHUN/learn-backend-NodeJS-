@@ -1,4 +1,5 @@
-const User = require('../models/User')
+const User = require('../models/User') // the moment mongoose see these models, automatically adds 
+// them to the cloud database
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 

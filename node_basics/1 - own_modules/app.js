@@ -1,4 +1,3 @@
-const john = require('./names').john
-const peter = require('./names').peter
-const sayHi = require('./functions').sayHi
+const {john, peter} = require('./names')
+const {sayHi} = require('./functions')
 sayHi(john)
